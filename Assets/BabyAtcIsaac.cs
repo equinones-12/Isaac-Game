@@ -1,49 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
-public class GetHurt : MonoBehaviour
+public class BabyAtcIsaac : MonoBehaviour
 {
-    public int hurt;
     public int health;
+    public int hurt;
     public GameObject spawn;
-    public Rigidbody2D rb;
     public Animator anim;
-    public int t;
     public float u;
-  
+    public int t;
+    public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         spawn = GameObject.FindWithTag("spawn");
-    }
-    void Update()
-    {
-
-        if(hurt > health)
-        {
-
-            anim.SetTrigger("Die");
-            t = 5;
-            if (u > 0.3)
-            {
-                
-                rb.velocity = new Vector2(2f, 0f);
-            }
-            if(u > 0.7)
-            {
-                Dead();
-
-            }
-
-        }
-        if(t > 0)
-        {
-            u += Time.deltaTime;
-
-        }
-
     }
 
     // Update is called once per frame
@@ -51,18 +22,42 @@ public class GetHurt : MonoBehaviour
     {
         if (col.CompareTag("isaac"))
         {
-            
             hurt += 1;
-          
+
 
         }
     }
+    void Update()
+    {
+        if (hurt > health)
+        {
+
+            anim.SetTrigger("Die");
+            t = 5;
+            if (u > 0.1)
+            {
+
+                rb.velocity = new Vector2(8f, 0f);
+            }
+            if (u > 0.7)
+            {
+                Dead();
+
+            }
+
+        }
+        if (t > 0)
+        {
+            u += Time.deltaTime;
+
+        }
+
+
+
+    }
     public void Dead()
     {
-
-        spawn.GetComponent<SpawnNewEnemy>().doy = 1;
+        spawn.GetComponent<SpawnNewEnemy>().doy = 1 ;
         Destroy(gameObject);
-
-
     }
 }

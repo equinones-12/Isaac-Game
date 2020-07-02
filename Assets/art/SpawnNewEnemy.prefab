@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 3447739799836727995, guid: a15b13760dd664d488eed8ad2ec45901, type: 3}
+  ran: 8
+  doy: 0
+  enemy2: {fileID: 7754261333178406577, guid: a35789b47f75dc14183db6cad33c0384, type: 3}

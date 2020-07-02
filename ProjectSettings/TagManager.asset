@@ -8,6 +8,7 @@ TagManager:
   - isaac
   - HurtIsaac
   - enemy
+  - spawn
   layers:
   - Default
   - TransparentFX
